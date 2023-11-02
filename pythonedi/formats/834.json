@@ -761,7 +761,7 @@
                     }
 
                 ]
-            }
+            }    
         ]
     },
     {
@@ -864,7 +864,9 @@
                         "notes": "Not Used"
                     }
                 ]
-            },
+            }
+        ]
+    },
             {
                 "id": "L_2000",
                 "type": "loop",
@@ -1900,368 +1902,598 @@
                         ]
                     }
                 ]
+            }, 
+            {
+                "id": "L_2100A_MI",
+                "type": "loop",
+                "name": "Member Income",
+                "req": "R",
+                "repeat": 1200,
+                "segments": [
+                    {
+                        "id": "ICM",
+                        "type": "segment",
+                        "name": "Member Income",
+                        "req": "M",
+                        "max_uses": 1200,
+                        "notes": "To supply information to determine benefit eligibility, deductibles and retirement and investiment contributions.",
+                        "elements": [
+                            {
+                                "id": "ICM01",
+                                "name": "Frequency Code",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "notes": "Code indicating frequency or type of payment"
+                            },
+                            {
+                                "id": "ICM02",
+                                "name": "Monetary amount",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "R",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 18 
+                                },
+                                "notes": "Monetary amount (wage)"
+                            },
+                            {
+                                "id": "ICM03",
+                                "name": "Quantity",
+                                "type": "element",
+                                "req": "S",
+                                "data_type": "R",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 15
+                                },
+                                "notes": "Work hours count - weekly hours worked"
+                            },
+                            {
+                                "id": "ICM04",
+                                "name": "Location identifier",
+                                "type": "element",
+                                "req": "S",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 30
+                                },
+                                "notes": "Effective date of salary"
+                            },
+                            {
+                                "id": "ICM05",
+                                "name": "Salary grade",
+                                "type": "element",
+                                "req": "S",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 5
+                                },
+                                "notes": ""
+                            },
+                            {
+                                "id": "ICM06",
+                                "name": "Currency Code",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 3,
+                                    "max": 3 
+                                },
+                                "notes": "Not used"
+                            }
+                        ]
+                    }
+                            
+                ]
             },
             {
-                "id": "SDQ",
-                "type": "segment",
-                "name": "Destination Quantity",
-                "req": "O",
-                "max_uses": 200,
-                "notes": "To specify destination and quantity detail",
-                "elements": [
+                "id": "L_2300",
+                "type": "loop",
+                "name": "Health Coverage",
+                "req": "R",
+                "repeat": 1200,
+                "segments": [
                     {
-                        "id": "SDQ01",
-                        "type": "element",
-                        "name": "Unit or Basis for Measurement Code",
+                        "id": "HD",
+                        "type": "segment",
+                        "name": "Health Coverage",
                         "req": "M",
-                        "data_type": "ID",
-                        "data_type_ids": {
-                            "UN": "Unit"
-                        },
-                        "length": {
-                            "min": 2,
-                            "max": 2
-                        },
-                        "notes": "Code specifying the units in which a value is being expressed, or manner in which a measurement has been taken"
-                    },
-                    {
-                        "id": "SDQ02",
-                        "type": "element",
-                        "name": "Identification Code Qualifier",
-                        "req": "O",
-                        "data_type": "ID",
-                        "data_type_ids": {
-                            "92": "Assigned by Buyer or Buyer's Agent"
-                        },
-                        "length": {
-                            "min": 1,
-                            "max": 2
-                        },
-                        "notes": "Code specifying the system/method of code structure used for Identification Code (67)"
-                    },
-                    {
-                        "id": "SDQ03",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "M",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ04",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "M",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ05",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ06",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ07",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ08",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ09",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ10",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ11",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ12",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ13",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ14",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ15",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ16",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ17",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ18",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ19",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ20",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ21",
-                        "type": "element",
-                        "name": "Identification Code",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "SDQ22",
-                        "type": "element",
-                        "name": "Quantity",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 15
-                        },
-                        "notes": "Numeric value of quantity"
-                    },
-                    {
-                        "id": "SDQ23",
-                        "type": "element",
-                        "name": "Location Identifier",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 30
-                        },
-                        "notes": "Code which identifies a specific location"
-                    }
-                ]
-            }
+                        "max_uses": 1200,
+                        "notes": "To provide information on health coverage",
+                        "elements": [
+                            {
+                                "id": "HD01",
+                                "name": "Maintenance type code",
+                                "type": "element",
+                                "req": "R",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 3,
+                                    "max": 3 
+                                },
+                                "notes": "Code indicating the specific type of item maintenance"
+                            },
+                            {
+                                "id": "HD02",
+                                "name": "Maintenance Reason Code",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 3
+                                },
+                                "notes": "Not used"
+                            },
+                            {
+                                "id": "HD03",
+                                "name": "Insurance line code",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 3
+                                },
+                                "notes": "Code identifying a group of insurance products"
+                            },
+                            {
+                                "id": "HD04",
+                                "name": "Plan Coverage Description",
+                                "type": "element",
+                                "req": "S",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 50
+                                },
+                                "notes": "A description or number that describes the plan or coverage."
+                            },
+                            {
+                                "id": "HD05",
+                                "name": "Coverage level code",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 3,
+                                    "max": 3
+                                },
+                                "notes": "Code indicating the level of coverage being provided for the insured."
+                            },
+                            {
+                                "id": "HD06",
+                                "name": "Count",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "N0",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 9 
+                                },
+                                "notes": "Not Used"
+                            },                            
+                            {
+                                "id": "HD07",
+                                "name": "Count",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "N0",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 9 
+                                },
+                                "notes": "Not Used"
+                            },
+                            {
+                                "id": "HD08",
+                                "name": "Underwriting desicion code",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "notes": "not used"
+                            },
+                            {
+                                "id": "HD09",
+                                "name": "Yes/No Condition",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "notes": "Code indicating a yes/no response"
+                            },
+                            {
+                                "id": "HD10",
+                                "name": "Drug house code",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 3 
+                                },
+                                "notes": "not used"
+                            },
+                            {
+                                "id": "HD11",
+                                "name": "Yes/No Condition",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 1 
+                                },
+                                "notes": "not used"
+                            }
+                        ]
 
-        ]
-    },
-    {
-        "id": "L_CTT",
-        "type": "loop",
-        "name": "Transaction Totals Loop",
-        "req": "O",
-        "repeat": 200,
-        "segments": [
-            {
-                "id": "CTT",
-                "type": "segment",
-                "name": "Transaction Totals",
-                "req": "M",
-                "max_uses": 1,
-                "notes": "To transmit a hash total for a specific element in the transaction set",
-                "elements": [
-                    {
-                        "id": "CTT01",
-                        "name": "Number of Line Items",
-                        "type": "element",
-                        "req": "M",
-                        "data_type": "N0",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 6
-                        },
-                        "notes": "Total number of line items in the transaction set"
-                    },
-                    {
-                        "id": "CTT02",
-                        "name": "Hash Total",
-                        "type": "element",
-                        "req": "O",
-                        "data_type": "R",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 10
-                        },
-                        "notes": "Sum of values of the specified data element. All values in the data element will be summed without regard to decimal points (explicit or implicit) or signs. Truncation will occur on the left most digits if the sum is greater than the maximum size of the hash total of the data element. Example: -.0018 First occurrence of value being hashed. .18 Second occurrence of value being hashed. 1.8 Third occurrence of value being hashed. 18.01 Fourth occurrence of value being hashed. 18E2 Fifth occurrence of value being hashed. -------- 1873 Hash Total"
                     }
                 ]
-            }
-        ]
-    },
+            }, 
+            {
+                "id": "L_2300_DTP",
+                "type": "loop",
+                "name": "Health Coverage Dates",
+                "req": "R",
+                "repeat": 1200,
+                "segments": [
+                    {
+                        "id": "DTP",
+                        "type": "segment",
+                        "name": "Health Coverage Dates",
+                        "req": "M",
+                        "max_uses": 1200,
+                        "notes": "To specify any or all of a date, a time, or a time period",
+                        "elements": [
+                            {
+                                "id": "DTP01",
+                                "name": "Date/Time Qualifier",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 3,
+                                    "max": 3 
+                                },
+                                "notes": "Code specifying the type of date or time, or both date and time"
+                            },
+                            {
+                                "id": "DTP02",
+                                "name": "Date/time Period Format Qualifier",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 3
+                                },
+                                "notes": "Code indicating the date format, time format, or date and time format"
+                            },
+                            {
+                                "id": "DTP03",
+                                "name": "Date/Time Period",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 35
+                                },
+                                "notes": "Expression of a date, a time, or range of dates, times or dates and times"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "L_2300_REF",
+                "type": "loop",
+                "name": "Health Coverage Policy Number",
+                "req": "R",
+                "repeat": 1200,
+                "segments": [
+                    {
+                        "id": "REF",
+                        "type": "segment",
+                        "name": "Health Coverage Policy Number",
+                        "req": "M",
+                        "max_uses": 1200,
+                        "notes": "To specify identifying information",
+                        "elements": [
+                            {
+                                "id": "REF01",
+                                "name": "Reference Identification Qualifier",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 3 
+                                },
+                                "notes": "Code qualifying the reference identification"
+                            },
+                            {
+                                "id": "REF02",
+                                "name": "Reference Identification",
+                                "type": "element",
+                                "req": "X",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 50
+                                },
+                                "notes": "Reference information as defined for a particular Transaction Set or as specified by the Reference Identification Qualifier ( group plan number )."
+                            },
+                            {
+                                "id": "REF03",
+                                "name": "Description",
+                                "type": "element",
+                                "req": "X",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 80
+                                },
+                                "notes": "Not used"
+                            },
+                            {
+                                "id": "REF04",
+                                "name": "Reference identifier",
+                                "type": "element",
+                                "req": "O",
+                                "notes": "Not used"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "L_2300_LX",
+                "type": "loop",
+                "name": "Provider Information",
+                "req": "S",
+                "repeat": 1200,
+                "segments": [
+                    {
+                        "id": "LX",
+                        "type": "segment",
+                        "name": "Provider Information",
+                        "req": "M",
+                        "max_uses": 1200,
+                        "notes": "To reference a line number in a transaction set",
+                        "elements": [
+                            {
+                                "id": "LX01",
+                                "name": "Assigned number",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "N0",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 6
+                                },
+                                "notes": "Required"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "L_2300_NM1",
+                "type": "loop",
+                "name": "Provider name",
+                "req": "R",
+                "repeat": 1200,
+                "segments": [
+                    {
+                        "id": "NM1",
+                        "type": "segment",
+                        "name": "Provider name",
+                        "req": "M",
+                        "max_uses": 1200,
+                        "notes": "To supply the full name of an individual or organized entity",
+                        "elements": [
+                            {
+                                "id": "NM101",
+                                "name": "Entity identifier",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 3 
+                                },
+                                "notes": "Code identifying an organizational entity, a physical location, property or an individual"
+                            },
+                            {
+                                "id": "NM102",
+                                "name": "Entity type qualifer",
+                                "type": "element",
+                                "req": "M",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 1
+                                },
+                                "notes": "Code qualifying the type of entity"
+                            },
+                            {
+                                "id": "NM103",
+                                "name": "Name last or organization name",
+                                "type": "element",
+                                "req": "X",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 80
+                                },
+                                "notes": "Individual last name or organization name"
+                            },
+                            {
+                                "id": "NM104",
+                                "name": "Name First",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 35
+                                },
+                                "notes": "Individual first name"
+                            },
+                            {
+                                "id": "NM105",
+                                "name": "Name middle",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 25
+                                },
+                                "notes": "Individual middle name"
+                            },
+                            {
+                                "id": "NM106",
+                                "name": "Name prefix",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 10 
+                                },
+                                "notes": "Prefix to individual name"
+                            },
+                            {
+                                "id": "NM107",
+                                "name": "Name suffix",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 10 
+                                },
+                                "notes": "Suffix to individual name"
+                            },
+                            {
+                                "id": "NM108",
+                                "name": "Identification Code Qualifier",
+                                "type": "element",
+                                "req": "X",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 2
+                                },
+                                "notes": "Code designating the system/method of code structure used for Identification Code (67)"
+                            },
+                            {
+                                "id": "NM109",
+                                "name": "Identification Code",
+                                "type": "element",
+                                "req": "X",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 80
+                                },
+                                "notes": "Code identifying a party or other code"
+                            },
+                            {
+                                "id": "NM110",
+                                "name": "Entity Relationship Code",
+                                "type": "element",
+                                "req": "X",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 2 
+                                },
+                                "notes": "Code describing entity relationship"
+                            },
+                            {
+                                "id": "NM111",
+                                "name": "Entity Identifier Code",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "ID",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 2,
+                                    "max": 3 
+                                },
+                                "notes": "not used"
+                            },
+                            {
+                                "id": "NM112",
+                                "name": "Name last or organization name",
+                                "type": "element",
+                                "req": "O",
+                                "data_type": "AN",
+                                "data_type_ids": null,
+                                "length": {
+                                    "min": 1,
+                                    "max": 60 
+                                },
+                                "notes": "not used"
+                            }
+                        ]
+                    }
+                ]
+            },
     {
         "id": "SE",
         "type": "segment",
