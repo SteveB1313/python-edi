@@ -9,8 +9,8 @@ from .debug import Debug
 class EDIGenerator(object):
     def __init__(self):
         # Set default delimiters
-        self.element_delimiter = "^"
-        self.segment_delimiter = "\n"
+        self.element_delimiter = "*"
+        self.segment_delimiter = "~\n"
         self.data_delimiter = "`"
 
     def build(self, data):
@@ -131,6 +131,7 @@ class EDIGenerator(object):
         return self.element_delimiter.join(output_elements)
 
     def build_element(self, e_format, e_data):
+        print(f"e_format: {e_format}, e_data: {e_data}")
         element_id = e_format["id"]
         formatted_element = ""
         if e_data is None:
@@ -179,6 +180,7 @@ class EDIGenerator(object):
             raise ValueError("Error converting '{}' to data type '{}'".format(e_data, e_format["data_type"]))
 
         # Pad/trim formatted element to fit the field min/max length respectively
+        print(e_format)
         formatted_element += " "*(e_format["length"]["min"]-len(formatted_element))
         formatted_element = formatted_element[:e_format["length"]["max"]]
 

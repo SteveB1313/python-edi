@@ -1,2605 +1,2608 @@
 [
-    {
-        "id": "ISA",
+  {
+    "id": "ISA",
+    "type": "segment",
+    "name": "Interchange Control Header",
+    "req": "M",
+    "max_uses": 1,
+    "notes": "",
+    "elements": [
+      {
+        "id": "ISA01",
+        "type": "element",
+        "name": "Authorization Information Qualifier",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "00": "(default)"
+        },
+        "length": {
+          "min": 2,
+          "max": 2
+        },
+        "notes": "Code to identify the type of information in the Authorization Information"
+      },
+      {
+        "id": "ISA02",
+        "type": "element",
+        "name": "Authorization Information",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 10,
+          "max": 10
+        },
+        "notes": "Information used for additional identification or authorization of the interchange sender or the data in the interchange; the type of information is set by the Authorization Information Qualifier (I01)"
+      },
+      {
+        "id": "ISA03",
+        "type": "element",
+        "name": "Security Information Qualifier",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "00": "(default)"
+        },
+        "length": {
+          "min": 2,
+          "max": 2
+        },
+        "notes": "Code to identify the type of information in the Security Information"
+      },
+      {
+        "id": "ISA04",
+        "type": "element",
+        "name": "Security Information",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 10,
+          "max": 10
+        },
+        "notes": "This is used for identifying the security information about the interchange sender or the data in the interchange; the type of information is set by the Security Information Qualifier (I03)"
+      },
+      {
+        "id": "ISA05",
+        "type": "element",
+        "name": "Interchange Sender ID Qualifier",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "ZZ": "Mutually Defined"
+        },
+        "length": {
+          "min": 2,
+          "max": 2
+        },
+        "notes": "Qualifier to designate the system/method of code structure used to designate the sender or receiver ID element being qualified"
+      },
+      {
+        "id": "ISA06",
+        "type": "element",
+        "name": "Interchange Sender ID",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 15,
+          "max": 15
+        },
+        "notes": "Identification code published by the sender for other parties to use as the receiver ID to route data to them; the sender always codes this value in the sender ID element"
+      },
+      {
+        "id": "ISA07",
+        "type": "element",
+        "name": "Interchange Receiver ID Qualifier",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "ZZ": "Mutually Defined"
+        },
+        "length": {
+          "min": 2,
+          "max": 2
+        },
+        "notes": "Qualifier to designate the system/method of code structure used to designate the sender or receiver ID element being qualified"
+      },
+      {
+        "id": "ISA08",
+        "type": "element",
+        "name": "Interchange Receiver ID",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 15,
+          "max": 15
+        },
+        "notes": "Identification code published by the receiver of the data; When sending, it is used by the sender as their sending ID, thus other parties sending to them will use this as a receiving ID to route data to them"
+      },
+      {
+        "id": "ISA09",
+        "type": "element",
+        "name": "Interchange Date",
+        "req": "M",
+        "data_type": "DT",
+        "data_type_ids": null,
+        "length": {
+          "min": 6,
+          "max": 6
+        },
+        "notes": "Date of the interchange"
+      },
+      {
+        "id": "ISA10",
+        "type": "element",
+        "name": "Interchange Time",
+        "req": "M",
+        "data_type": "TM",
+        "data_type_ids": null,
+        "length": {
+          "min": 4,
+          "max": 4
+        },
+        "notes": "Time of the interchange"
+      },
+      {
+        "id": "ISA11",
+        "type": "",
+        "name": "Repetition Seperator",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 1
+        },
+        "notes": "The repetition separator."
+      },
+      {
+        "id": "ISA12",
+        "type": "element",
+        "name": "Interchange Control Version Number",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "U": "(default)"
+        },
+        "length": {
+          "min": 5,
+          "max": 5
+        },
+        "notes": "This version number covers the interchange control segments"
+      },
+      {
+        "id": "ISA13",
+        "type": "element",
+        "name": "Interchange Control Number",
+        "req": "M",
+        "data_type": "N0",
+        "data_type_ids": null,
+        "length": {
+          "min": 9,
+          "max": 9
+        },
+        "notes": "A control number assigned by the interchange sender"
+      },
+      {
+        "id": "ISA14",
+        "type": "element",
+        "name": "Acknowledgment Requested",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "1": "Requested"
+        },
+        "length": {
+          "min": 1,
+          "max": 1
+        },
+        "notes": "Code sent by the sender to request an interchange acknowledgment (TA1)"
+      },
+      {
+        "id": "ISA15",
+        "type": "element",
+        "name": "Usage Indicator",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "T": "Test",
+          "P": "Production",
+          "I": "Information"
+        },
+        "length": {
+          "min": 1,
+          "max": 1
+        },
+        "notes": "Code to indicate whether data enclosed by this interchange envelope is test, production or information"
+      },
+      {
+        "id": "ISA16",
+        "type": "element",
+        "name": "Component Element Separator",
+        "req": "M",
+        "data_type": "",
+        "data_type_ids": {
+          ":": "(default)"
+        },
+        "length": {
+          "min": 1,
+          "max": 1
+        },
+        "notes": "Type is not applicable; the component element separator is a delimiter and not a data element; this field provides the delimiter used to separate component data elements within a composite data structure; this value must be different than the data element separator and the segment terminator"
+      }
+    ]
+  },
+  {
+    "id": "GS",
+    "type": "segment",
+    "name": "Functional Group Header",
+    "req": "M",
+    "max_uses": 1,
+    "notes": "",
+    "elements": [
+      {
+        "id": "GS01",
+        "type": "element",
+        "name": "Functional Identifier Code",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "BE": "Benefit Enrollment and Maintenance (834)"
+        },
+        "length": {
+          "min": 2,
+          "max": 2
+        },
+        "notes": "Code identifying a group of application related transaction sets"
+      },
+      {
+        "id": "GS02",
+        "type": "element",
+        "name": "Application Sender's Code",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 2,
+          "max": 15
+        },
+        "notes": "Code identifying party sending transmission; codes agreed to by trading partners"
+      },
+      {
+        "id": "GS03",
+        "type": "element",
+        "name": "Application Receiver's Code",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 2,
+          "max": 15
+        },
+        "notes": "Code identifying party receiving transmission. Codes agreed to by trading partners"
+      },
+      {
+        "id": "GS04",
+        "type": "element",
+        "name": "Date",
+        "req": "M",
+        "data_type": "DT",
+        "data_type_ids": null,
+        "length": {
+          "min": 8,
+          "max": 8
+        },
+        "notes": "Date expressed as CCYYMMDD"
+      },
+      {
+        "id": "GS05",
+        "type": "element",
+        "name": "Time",
+        "req": "M",
+        "data_type": "TM",
+        "data_type_ids": null,
+        "length": {
+          "min": 4,
+          "max": 8
+        },
+        "notes": "Time expressed in 24-hour clock time as follows: HHMM, or HHMMSS, or HHMMSSD, or HHMMSSDD"
+      },
+      {
+        "id": "GS06",
+        "type": "element",
+        "name": "Group Control Number",
+        "req": "M",
+        "data_type": "N0",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 9
+        },
+        "notes": "Assigned number originated and maintained by the sender, needs to match GE02"
+      },
+      {
+        "id": "GS07",
+        "type": "element",
+        "name": "Responsible Agency Code",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "X": "Accredited Standards Committee X12",
+          "T": ""
+        },
+        "length": {
+          "min": 1,
+          "max": 2
+        },
+        "notes": "Code used in conjunction with Data Element 480 to identify the issuer of the standard"
+      },
+      {
+        "id": "GS08",
+        "type": "element",
+        "name": "Version / Release / Industry Identifier Code",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 12
+        },
+        "notes": "Code indicating the version, release, subrelease, and industry identifier of the EDI standard being used, including the GS and GE segments; if code in DE455 in GS segment is X, then in DE 480 positions 1-3 are the version number; positions 4-6 are the release and subrelease, level of the version; and positions 7-12 are the industry or trade association identifiers (optionally assigned by user); if code in DE455 in GS segment is T, then other formats are allowed"
+      }
+    ]
+  },
+  {
+    "id": "ST",
+    "type": "segment",
+    "name": "Transaction Set Header",
+    "req": "M",
+    "max_uses": 1,
+    "notes": "To indicate the start of a transaction set and to assign a control number",
+    "elements": [
+      {
+        "id": "ST01",
+        "type": "element",
+        "name": "Transaction Set Identifier Code",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "834": "Benefits Enrollment and Maintenance"
+        },
+        "length": {
+          "min": 3,
+          "max": 3
+        },
+        "notes": "Code identifying a Transaction Set"
+      },
+      {
+        "id": "ST02",
+        "type": "element",
+        "name": "Transaction Set Control Number",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 4,
+          "max": 9
+        },
+        "notes": "Identifying control number that must be unique within the transaction set functional group assigned by the originator for a transaction set"
+      },
+      {
+        "id": "ST03",
+        "type": "element",
+        "name": "Implementation Convention Reference",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 35
+        },
+        "notes": "Reference assigned to identify implementation convention"
+      }
+    ]
+  },
+  {
+    "id": "BGN",
+    "type": "segment",
+    "name": "Beginning Segment",
+    "req": "M",
+    "max_uses": 1,
+    "notes": "",
+    "elements": [
+      {
+        "id": "BGN01",
+        "type": "element",
+        "name": "Transaction Set Purpose Code",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "00": "Original"
+        },
+        "length": {
+          "min": 2,
+          "max": 2
+        },
+        "notes": "Code identifying purpose of transaction set"
+      },
+      {
+        "id": "BGN02",
+        "type": "element",
+        "name": "Reference Identification",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 50
+        },
+        "notes": "Referenct information defined for a particular transaction set"
+      },
+      {
+        "id": "BGN03",
+        "type": "element",
+        "name": "Date",
+        "req": "M",
+        "data_type": "DT",
+        "data_type_ids": null,
+        "length": {
+          "min": 8,
+          "max": 8
+        },
+        "notes": "Date expressed as CCYYMMDD"
+      },
+      {
+        "id": "BGN04",
+        "type": "element",
+        "name": "Time",
+        "req": "M",
+        "data_type": "TM",
+        "data_type_ids": null,
+        "length": {
+          "min": 4,
+          "max": 8
+        },
+        "notes": "Time expressed as HHMM"
+      },
+      {
+        "id": "BGN05",
+        "type": "element",
+        "name": "Time Code",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "ET": "Eastern Time"
+        },
+        "length": {
+          "min": 2,
+          "max": 2
+        },
+        "notes": "Code identifying the time"
+      },
+      {
+        "id": "BGN06",
+        "type": "element",
+        "name": "Reference Identification",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "": "(default)"
+        },
+        "length": {
+          "min": 1,
+          "max": 50
+        },
+        "notes": "Reference information as defined for a particular transaction set"
+      },
+      {
+        "id": "BGN07",
+        "type": "element",
+        "name": "Transation code type",
+        "req": "O",
+        "data_type": "ID",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 2
+        },
+        "notes": "not used"
+      },
+      {
+        "id": "BGN08",
+        "type": "element",
+        "name": "Action Code",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "2": "Change",
+          "4": "Verify",
+          "RX": "Replace"
+        },
+        "length": {
+          "min": 1,
+          "max": 2
+        },
+        "notes": "not used"
+      },
+      {
+        "id": "BGN09",
+        "type": "element",
+        "name": "Security Level Code",
+        "req": "O",
+        "data_type": "ID",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 2
+        },
+        "notes": "not used"
+      }
+    ]
+  },
+  {
+    "id": "REF",
+    "type": "segment",
+    "name": "Reference Information",
+    "req": "O",
+    "max_uses": 1,
+    "notes": "To specify identifying information",
+    "elements": [
+      {
+        "id": "REF01",
+        "type": "element",
+        "name": "Reference Identification Qualifier",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "MPN": "Master Policy Number"
+        },
+        "length": {
+          "min": 2,
+          "max": 3
+        },
+        "notes": "Code identifying the Reference Identification"
+      },
+      {
+        "id": "REF02",
+        "type": "element",
+        "name": "Reference Identification",
+        "req": "O",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 50
+        },
+        "notes": "Reference information as defined for a particular Transaction Set or as specified by the Reference Identification Qualifier"
+      },
+      {
+        "id": "REF03",
+        "type": "element",
+        "name": "Reference Identifier",
+        "req": "O",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 80
+        },
+        "notes": "Not used"
+      },
+      {
+        "id": "REF04",
+        "type": "element",
+        "name": "Reference Identification",
+        "req": "O",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 50
+        },
+        "notes": "Not used"
+      }
+    ]
+  },
+  {
+    "id": "DTP",
+    "type": "segment",
+    "name": "File Effective Date",
+    "req": "O",
+    "max_uses": 10,
+    "notes": "To specify pertinent dates and times",
+    "elements": [
+      {
+        "id": "DTP01",
+        "type": "element",
+        "name": "Date/Time Qualifier",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "007": "Effective"
+        },
+        "length": {
+          "min": 3,
+          "max": 3
+        },
+        "notes": "Code to identify the type of information in the Authorization Information"
+      },
+      {
+        "id": "DTP02",
+        "type": "element",
+        "name": "Date time period format qualifier",
+        "req": "M",
+        "data_type": "ID",
+        "data_type_ids": {
+          "D8": "Date in CCYYMMDD"
+        },
+        "length": {
+          "min": 2,
+          "max": 3
+        },
+        "notes": "Code indicating the date format"
+      },
+      {
+        "id": "DTP03",
+        "type": "element",
+        "name": "Date time period",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 35
+        },
+        "notes": "Date expressed as CCYYMMDD where CC represents the first two digits of the calendar year"
+      }
+    ]
+  },
+  {
+    "id": "L_N1",
+    "type": "loop",
+    "name": "Member Name Loop",
+    "req": "M",
+    "repeat": 200,
+    "segments": [
+      {
+        "id": "N1",
         "type": "segment",
-        "name": "Interchange Control Header",
+        "name": "Party Identification",
         "req": "M",
         "max_uses": 1,
-        "notes": "",
+        "notes": "To identify a party by type of organization, name, and code",
         "elements": [
-            {
-                "id": "ISA01",
-                "type": "element",
-                "name": "Authorization Information Qualifier",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "00": "(default)"
-                },
-                "length": {
-                    "min": 2,
-                    "max": 2
-                },
-                "notes": "Code to identify the type of information in the Authorization Information"
+          {
+            "id": "N101",
+            "name": "Entity Identifier Code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "P5": "Plan sponsor"
             },
-            {
-                "id": "ISA02",
-                "type": "element",
-                "name": "Authorization Information",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 10,
-                    "max": 10
-                },
-                "notes": "Information used for additional identification or authorization of the interchange sender or the data in the interchange; the type of information is set by the Authorization Information Qualifier (I01)"
+            "length": {
+              "min": 2,
+              "max": 3
             },
-            {
-                "id": "ISA03",
-                "type": "element",
-                "name": "Security Information Qualifier",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "00": "(default)"
-                },
-                "length": {
-                    "min": 2,
-                    "max": 2
-                },
-                "notes": "Code to identify the type of information in the Security Information"
+            "notes": "Code identifying an organizational entity, a physical location, property or an individual"
+          },
+          {
+            "id": "N102",
+            "name": "Name",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 60
             },
-            {
-                "id": "ISA04",
-                "type": "element",
-                "name": "Security Information",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 10,
-                    "max": 10
-                },
-                "notes": "This is used for identifying the security information about the interchange sender or the data in the interchange; the type of information is set by the Security Information Qualifier (I03)"
+            "notes": "Free-form plan name"
+          },
+          {
+            "id": "N103",
+            "name": "Identification Code Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "24": "Employer's Identification Number",
+              "94": "Destination of transation set",
+              "FI": "Federal taxpayer's identification number"
             },
-            {
-                "id": "ISA05",
-                "type": "element",
-                "name": "Interchange Sender ID Qualifier",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "ZZ": "Mutually Defined"
-                },
-                "length": {
-                    "min": 2,
-                    "max": 2
-                },
-                "notes": "Qualifier to designate the system/method of code structure used to designate the sender or receiver ID element being qualified"
+            "length": {
+              "min": 1,
+              "max": 2
             },
-            {
-                "id": "ISA06",
-                "type": "element",
-                "name": "Interchange Sender ID",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 15,
-                    "max": 15
-                },
-                "notes": "Identification code published by the sender for other parties to use as the receiver ID to route data to them; the sender always codes this value in the sender ID element"
+            "notes": "Code designating the system/method of code structure used for Identification Code (67)"
+          },
+          {
+            "id": "N104",
+            "name": "Identification Code",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 80
             },
-            {
-                "id": "ISA07",
-                "type": "element",
-                "name": "Interchange Receiver ID Qualifier",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "ZZ": "Mutually Defined"
-                },
-                "length": {
-                    "min": 2,
-                    "max": 2
-                },
-                "notes": "Qualifier to designate the system/method of code structure used to designate the sender or receiver ID element being qualified"
+            "notes": "Code identifying a party or other code"
+          },
+          {
+            "id": "N105",
+            "name": "Entity Relationship Code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 2
             },
-            {
-                "id": "ISA08",
-                "type": "element",
-                "name": "Interchange Receiver ID",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 15,
-                    "max": 15
-                },
-                "notes": "Identification code published by the receiver of the data; When sending, it is used by the sender as their sending ID, thus other parties sending to them will use this as a receiving ID to route data to them"
+            "notes": "Not Used"
+          },
+          {
+            "id": "N106",
+            "name": "Entity Identifer code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
             },
-            {
-                "id": "ISA09",
-                "type": "element",
-                "name": "Interchange Date",
-                "req": "M",
-                "data_type": "DT",
-                "data_type_ids": null,
-                "length": {
-                    "min": 6,
-                    "max": 6
-                },
-                "notes": "Date of the interchange"
-            },
-            {
-                "id": "ISA10",
-                "type": "element",
-                "name": "Interchange Time",
-                "req": "M",
-                "data_type": "TM",
-                "data_type_ids": null,
-                "length": {
-                    "min": 4,
-                    "max": 4
-                },
-                "notes": "Time of the interchange"
-            },
-            {
-                "id": "ISA11",
-                "type": "",
-                "name": "Repetition Seperator",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 1
-                },
-                "notes": "The repetition separator."
-            },
-            {
-                "id": "ISA12",
-                "type": "element",
-                "name": "Interchange Control Version Number",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "U": "(default)"
-                },
-                "length": {
-                    "min": 5,
-                    "max": 5
-                },
-                "notes": "This version number covers the interchange control segments"
-            },
-            {
-                "id": "ISA13",
-                "type": "element",
-                "name": "Interchange Control Number",
-                "req": "M",
-                "data_type": "N0",
-                "data_type_ids": null,
-                "length": {
-                    "min": 9,
-                    "max": 9
-                },
-                "notes": "A control number assigned by the interchange sender"
-            },
-            {
-                "id": "ISA14",
-                "type": "element",
-                "name": "Acknowledgment Requested",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "1": "Requested"
-                },
-                "length": {
-                    "min": 1,
-                    "max": 1
-                },
-                "notes": "Code sent by the sender to request an interchange acknowledgment (TA1)"
-            },
-            {
-                "id": "ISA15",
-                "type": "element",
-                "name": "Usage Indicator",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "T": "Test",
-                    "P": "Production",
-                    "I": "Information"
-                },
-                "length": {
-                    "min": 1,
-                    "max": 1
-                },
-                "notes": "Code to indicate whether data enclosed by this interchange envelope is test, production or information"
-            },
-            {
-                "id": "ISA16",
-                "type": "element",
-                "name": "Component Element Separator",
-                "req": "M",
-                "data_type": "",
-                "data_type_ids": {
-                    ":": "(default)"
-                },
-                "length": {
-                    "min": 1,
-                    "max": 1
-                },
-                "notes": "Type is not applicable; the component element separator is a delimiter and not a data element; this field provides the delimiter used to separate component data elements within a composite data structure; this value must be different than the data element separator and the segment terminator"
-            }
+            "notes": "Not Used"
+          }
         ]
-    },
-    {
-        "id": "GS",
+      }
+    ]
+  },
+  {
+    "id": "L_N2",
+    "type": "loop",
+    "name": "Payer Loop",
+    "req": "M",
+    "repeat": 200,
+    "segments": [
+      {
+        "id": "N1",
         "type": "segment",
-        "name": "Functional Group Header",
+        "name": "Baseline Item Data",
         "req": "M",
         "max_uses": 1,
-        "notes": "",
+        "notes": "To specify basic and most frequently used line item data",
         "elements": [
-            {
-                "id": "GS01",
-                "type": "element",
-                "name": "Functional Identifier Code",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "BE": "Benefit Enrollment and Maintenance (834)"
-                },
-                "length": {
-                    "min": 2,
-                    "max": 2
-                },
-                "notes": "Code identifying a group of application related transaction sets"
+          {
+            "id": "N101",
+            "name": "Entity Identifier Code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "IN": "Insurer"
             },
-            {
-                "id": "GS02",
-                "type": "element",
-                "name": "Application Sender's Code",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 2,
-                    "max": 15
-                },
-                "notes": "Code identifying party sending transmission; codes agreed to by trading partners"
+            "length": {
+              "min": 2,
+              "max": 3
             },
-            {
-                "id": "GS03",
-                "type": "element",
-                "name": "Application Receiver's Code",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 2,
-                    "max": 15
-                },
-                "notes": "Code identifying party receiving transmission. Codes agreed to by trading partners"
+            "notes": "Code identifying an organizational entity, a physical location, property or an individual"
+          },
+          {
+            "id": "N102",
+            "name": "Name",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 60
             },
-            {
-                "id": "GS04",
-                "type": "element",
-                "name": "Date",
-                "req": "M",
-                "data_type": "DT",
-                "data_type_ids": null,
-                "length": {
-                    "min": 8,
-                    "max": 8
-                },
-                "notes": "Date expressed as CCYYMMDD"
+            "notes": "Free-form name"
+          },
+          {
+            "id": "N103",
+            "name": "Identification Code Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "94": "Destination of transation set",
+              "FI": "Federal taxpayer's identification number",
+              "XV": "Health care financing administration national payer identification number"
             },
-            {
-                "id": "GS05",
-                "type": "element",
-                "name": "Time",
-                "req": "M",
-                "data_type": "TM",
-                "data_type_ids": null,
-                "length": {
-                    "min": 4,
-                    "max": 8
-                },
-                "notes": "Time expressed in 24-hour clock time as follows: HHMM, or HHMMSS, or HHMMSSD, or HHMMSSDD"
+            "length": {
+              "min": 1,
+              "max": 2
             },
-            {
-                "id": "GS06",
-                "type": "element",
-                "name": "Group Control Number",
-                "req": "M",
-                "data_type": "N0",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 9
-                },
-                "notes": "Assigned number originated and maintained by the sender, needs to match GE02"
+            "notes": "Code designating the system/method of code structure used for Identification Code (67)"
+          },
+          {
+            "id": "N104",
+            "name": "Identification Code",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 80
             },
-            {
-                "id": "GS07",
-                "type": "element",
-                "name": "Responsible Agency Code",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "X": "Accredited Standards Committee X12",
-                    "T": ""
-                },
-                "length": {
-                    "min": 1,
-                    "max": 2
-                },
-                "notes": "Code used in conjunction with Data Element 480 to identify the issuer of the standard"
+            "notes": "Code identifying a party or other code"
+          },
+          {
+            "id": "N105",
+            "name": "Entity Relationship Code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 2
             },
-            {
-                "id": "GS08",
-                "type": "element",
-                "name": "Version / Release / Industry Identifier Code",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 12
-                },
-                "notes": "Code indicating the version, release, subrelease, and industry identifier of the EDI standard being used, including the GS and GE segments; if code in DE455 in GS segment is X, then in DE 480 positions 1-3 are the version number; positions 4-6 are the release and subrelease, level of the version; and positions 7-12 are the industry or trade association identifiers (optionally assigned by user); if code in DE455 in GS segment is T, then other formats are allowed"
-            }
+            "notes": "Not Used"
+          },
+          {
+            "id": "N106",
+            "name": "Entity Identifer code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Not Used"
+          }
         ]
-    },
-    {
-        "id": "ST",
+      }
+    ]
+  },
+  {
+    "id": "L_INS",
+    "type": "loop",
+    "name": "Member Level Detail Loop",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "INS",
         "type": "segment",
-        "name": "Transaction Set Header",
+        "name": "Insured information",
         "req": "M",
-        "max_uses": 1,
-        "notes": "To indicate the start of a transaction set and to assign a control number",
+        "max_uses": 1200,
+        "notes": "to provide benefit information on insured entities",
         "elements": [
-            {
-                "id": "ST01",
-                "type": "element",
-                "name": "Transaction Set Identifier Code",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "834": "Benefits Enrollment and Maintenance"
-                },
-                "length": {
-                    "min": 3,
-                    "max": 3
-                },
-                "notes": "Code identifying a Transaction Set"
+          {
+            "id": "INS01",
+            "name": "Yes/No Condition",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "Y": "Subscriber record",
+              "N": "Dependent record"
             },
-            {
-                "id": "ST02",
-                "type": "element",
-                "name": "Transaction Set Control Number",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 4,
-                    "max": 9
-                },
-                "notes": "Identifying control number that must be unique within the transaction set functional group assigned by the originator for a transaction set"
+            "length": {
+              "min": 1,
+              "max": 1
             },
-            {
-                "id": "ST03",
-                "type": "element",
-                "name": "Implementation Convention Reference",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 35
-                },
-                "notes": "Reference assigned to identify implementation convention"
-            }
+            "notes": "Indication of subscriber/dependent"
+          },
+          {
+            "id": "INS02",
+            "name": "Individual relationship code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "01": "Spouse",
+              "03": "Father or Mother",
+              "04": "Grandfather or Grandmother",
+              "05": "Grandson or Granddaughter",
+              "06": "Aunt or Uncle",
+              "07": "Nephew or Niece",
+              "08": "Cousin",
+              "09": "Adopted Child",
+              "10": "Foster Child",
+              "11": "Son-in-law or daughter-in-law",
+              "12": "Brother-in-law or Sister-in-law",
+              "13": "Mother-in-law or father-in-law",
+              "14": "Brother or Sister",
+              "15": "Ward",
+              "16": "Stepparent",
+              "17": "Stepson or stepdaughter",
+              "18": "Self/subscriber",
+              "19": "Child",
+              "23": "sponsored dependent",
+              "24": "Dependent of minor dependent",
+              "25": "Ex-spouse",
+              "26": "Guardian",
+              "31": "Court appointed guardian",
+              "38": "Collateral Dependent",
+              "53": "Life Partner",
+              "60": "Annuitant",
+              "D2": "Trustee",
+              "G8": "Other Relationship",
+              "G9": "Other Relative"
+            },
+            "length": {
+              "min": 2,
+              "max": 2
+            },
+            "notes": "Code identifying relationship to subscriber"
+          },
+          {
+            "id": "INS03",
+            "name": "Maintenance Type Code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "001": "Change",
+              "021": "Addition",
+              "024": "Termination",
+              "025": "Reinstatement",
+              "030": "Audit or compare (full file)"
+            },
+            "length": {
+              "min": 3,
+              "max": 3
+            },
+            "notes": "Price per unit of product, service, commodity, etc."
+          },
+          {
+            "id": "INS04",
+            "name": "Maintenance Reason Code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Reason for maintenance change"
+          },
+          {
+            "id": "INS05",
+            "name": "Benefit status code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "A": "Active",
+              "C": "COBRA",
+              "S": "Surviving Insured",
+              "T": "TEFRA"
+            },
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "The type of coverage under which benefits are paid"
+          },
+          {
+            "id": "INS06",
+            "name": "Medicare Status Code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": ""
+          },
+          {
+            "id": "INS07",
+            "name": "COBRA",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "Qualifying event code, can be blank"
+          },
+          {
+            "id": "INS08",
+            "name": "Employment status code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 2
+            },
+            "notes": "Qualifying event code, can be blank"
+          },
+          {
+            "id": "INS09",
+            "name": "Student Status Code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "Student Status, non-spose dependents"
+          },
+          {
+            "id": "INS10",
+            "name": "Handicap Indicator",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": {},
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "This element is required if a dependent is disabled"
+          }
         ]
-    },
-    {
-        "id": "BEG",
-        "type": "segment",
-        "name": "Beginning Segment",
-        "req": "M",
-        "max_uses": 1,
-        "notes": "",
-        "elements": [
-            {
-                "id": "BEG01",
-                "type": "element",
-                "name": "Transaction Set Purpose Code",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "00": "Original"
-                },
-                "length": {
-                    "min": 2,
-                    "max": 2
-                },
-                "notes": "Code identifying purpose of transaction set"
-            },
-            {
-                "id": "BEG02",
-                "type": "element",
-                "name": "Reference Identification",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 50
-                },
-                "notes": "Referenct information defined for a particular transaction set"
-            },
-            {
-                "id": "BEG03",
-                "type": "element",
-                "name": "Date",
-                "req": "M",
-                "data_type": "DT",
-                "data_type_ids": null,
-                "length": {
-                    "min": 8,
-                    "max": 8
-                },
-                "notes": "Date expressed as CCYYMMDD"
-            },
-            {
-                "id": "BEG04",
-                "type": "element",
-                "name": "Time",
-                "req": "M",
-                "data_type": "TM",
-                "data_type_ids": null,
-                "length": {
-                    "min": 4,
-                    "max": 8
-                },
-                "notes": "Time expressed as HHMM"
-            },
-            {
-                "id": "BEG05",
-                "type": "element",
-                "name": "Time Code",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "ET": "Eastern Time"
-                },
-                "length": {
-                    "min": 8,
-                    "max": 8
-                },
-                "notes": "Code identifying the time"
-            },
-            {
-                "id": "BEG06",
-                "type": "element",
-                "name": "Reference Identification",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "": "(default)"
-                },
-                "length": {
-                    "min": 1,
-                    "max": 50
-                },
-                "notes": "Reference information as defined for a particular transaction set"
-            },
-            {
-                "id": "BEG07",
-                "type": "element",
-                "name": "Transation code type",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 2
-                },
-                "notes": "not used"
-            },
-            {
-                "id": "BEG08",
-                "type": "element",
-                "name": "Action Code",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "2": "Change",
-                    "4": "Verify",
-                    "RX": "Replace"
-                },
-                "length": {
-                    "min": 1,
-                    "max": 2
-                },
-                "notes": "not used"
-            },
-            {
-                "id": "BEG09",
-                "type": "element",
-                "name": "Security Level Code",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 2
-                },
-                "notes": "not used"
-            }
-        ]
-    },
-    {
+      }
+    ]
+  },
+  {
+    "id": "L_REF1",
+    "type": "loop",
+    "name": "Subscriber Identifier",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
         "id": "REF",
         "type": "segment",
-        "name": "Reference Information",
-        "req": "O",
-        "max_uses": 1,
-        "notes": "To specify identifying information",
+        "name": "Subscriber Identifier",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "to specify identifying information",
         "elements": [
-            {
-                "id": "REF01",
-                "type": "element",
-                "name": "Reference Identification Qualifier",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "MPN": "Master Policy Number"
-                },
-                "length": {
-                    "min": 2,
-                    "max": 3
-                },
-                "notes": "Code identifying the Reference Identification"
+          {
+            "id": "REF01",
+            "name": "Reference Identification Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "OF": "Subscriber Number"
             },
-            {
-                "id": "REF02",
-                "type": "element",
-                "name": "Reference Identification",
-                "req": "O",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 50
-                },
-                "notes": "Reference information as defined for a particular Transaction Set or as specified by the Reference Identification Qualifier"
+            "length": {
+              "min": 2,
+              "max": 3
             },
-            {
-                "id": "REF03",
-                "type": "element",
-                "name": "Reference Identifier",
-                "req": "O",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 80
-                },
-                "notes": "Not used"
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF02",
+            "name": "Reference Identification",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 50
             },
-            {
-                "id": "REF04",
-                "type": "element",
-                "name": "Reference Identification",
-                "req": "O",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 50
-                },
-                "notes": "Not used"
-            }
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF03",
+            "name": "Description",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 80
+            },
+            "notes": "not used"
+          },
+          {
+            "id": "REF04",
+            "name": "Reference Identifier",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 50
+            },
+            "notes": "Not used"
+          }
         ]
-    },
-    {
+      }
+    ]
+  },
+  {
+    "id": "L_REF2",
+    "type": "loop",
+    "name": "Subscriber Identifier",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "REF",
+        "type": "segment",
+        "name": "Subscriber Identifier",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "to specify identifying information",
+        "elements": [
+          {
+            "id": "REF01",
+            "name": "Reference Identification Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "OF": "Subscriber Number"
+            },
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF02",
+            "name": "Reference Identification",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 50
+            },
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF03",
+            "name": "Description",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 80
+            },
+            "notes": "not used"
+          },
+          {
+            "id": "REF04",
+            "name": "Reference Identifier",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 50
+            },
+            "notes": "Not used"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_REF3",
+    "type": "loop",
+    "name": "Member Policy Number",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "REF",
+        "type": "segment",
+        "name": "Member Policy Number",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "to specify identifying information",
+        "elements": [
+          {
+            "id": "REF01",
+            "name": "Reference Identification Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "1L": "Group or Policy Number"
+            },
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF02",
+            "name": "Reference Identification",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 50
+            },
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF03",
+            "name": "Description",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 80
+            },
+            "notes": "not used"
+          },
+          {
+            "id": "REF04",
+            "name": "Reference Identifier",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 50
+            },
+            "notes": "Not used"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_REF4",
+    "type": "loop",
+    "name": "Member Supplemental Identifier",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "REF",
+        "type": "segment",
+        "name": "Member Supplemental Identifier",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "to specify identifying information",
+        "elements": [
+          {
+            "id": "REF01",
+            "name": "Reference Identification Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "ZZ": "Mutually Defined"
+            },
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF02",
+            "name": "Reference Identification",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 30
+            },
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF03",
+            "name": "Description",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 80
+            },
+            "notes": "not used"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_DTP",
+    "type": "loop",
+    "name": "Member Leval Dates",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
         "id": "DTP",
         "type": "segment",
-        "name": "File Effective Date",
+        "name": "Member Level Dates",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "to specify any or all of a date, a time, or a time period",
+        "elements": [
+          {
+            "id": "DTP01",
+            "name": "Date/Time Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 3,
+              "max": 3
+            },
+            "notes": "Code specifying the type of date or time"
+          },
+          {
+            "id": "DTP02",
+            "name": "Date time Period Format",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "D8": "Date in CCYYMMDD"
+            },
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Code indicating the date format, time format, or date and time format"
+          },
+          {
+            "id": "DTP03",
+            "name": "Date Time Period",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 35
+            },
+            "notes": "Expression of a date, a time, or range of dates, times or dates and times"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_NM",
+    "type": "loop",
+    "name": "Member Name",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "NM",
+        "type": "segment",
+        "name": "Member Name",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "to supply the full name of an individual or organizational entity",
+        "elements": [
+          {
+            "id": "NM101",
+            "name": "Entity Identifer code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "IL": "Insured or Subscriber",
+              "74": "Corrected Insured"
+            },
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "NM102",
+            "name": "Entity type qualifer",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "1": "Person"
+            },
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "Code qualifying the type of entity"
+          },
+          {
+            "id": "NM103",
+            "name": "Name last or organization name",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 60
+            },
+            "notes": "Individual last name or organization name"
+          },
+          {
+            "id": "NM104",
+            "name": "Name First",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 35
+            },
+            "notes": "Individual first name"
+          },
+          {
+            "id": "NM105",
+            "name": "Name Middle",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 25
+            },
+            "notes": "Individual middle name"
+          },
+          {
+            "id": "NM106",
+            "name": "Name Prefix",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 10
+            },
+            "notes": "Leave blank"
+          },
+          {
+            "id": "NM107",
+            "name": "Name Suffix",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 10
+            },
+            "notes": "Leave blank"
+          },
+          {
+            "id": "NM108",
+            "name": "Code qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 2
+            },
+            "notes": "Code designating the method of code structure used for identification code"
+          },
+          {
+            "id": "NM109",
+            "name": "ID code",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 80
+            },
+            "notes": "Leave blank"
+          },
+          {
+            "id": "NM110",
+            "name": "Entity Relationship Code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 2
+            },
+            "notes": "Note used"
+          },
+          {
+            "id": "NM111",
+            "name": "Entity Identifer code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Note used"
+          },
+          {
+            "id": "NM12",
+            "name": "Name last or organization name",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 60
+            },
+            "notes": "Note used"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_PER",
+    "type": "loop",
+    "name": "Member Communications Number",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "PER",
+        "type": "segment",
+        "name": "Member Communications Number",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "To identify a person or office to whom administrative communications should be directed",
+        "elements": [
+          {
+            "id": "PER01",
+            "name": "Contact function code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": {
+              "IP": "Insured Party"
+            },
+            "length": {
+              "min": 2,
+              "max": 2
+            },
+            "notes": "Code qualifying the major duty or responsibility of the person or group named"
+          },
+          {
+            "id": "PER02",
+            "name": "Name",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 60
+            },
+            "notes": "Not used"
+          },
+          {
+            "id": "PER03",
+            "name": "Communication number qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 2
+            },
+            "notes": "Code identifying the type of communication number"
+          },
+          {
+            "id": "PER04",
+            "name": "Communication number",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 256
+            },
+            "notes": "Complete communications number including country or area code when applicable"
+          },
+          {
+            "id": "PER05",
+            "name": "Communication number qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 2
+            },
+            "notes": "Code identifying the type of communication number"
+          },
+          {
+            "id": "PER06",
+            "name": "Communication number",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 256
+            },
+            "notes": "Complete communications number including country or area code when applicable"
+          },
+          {
+            "id": "PER07",
+            "name": "Communication number qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 2
+            },
+            "notes": "Code identifying the type of communication number"
+          },
+          {
+            "id": "PER08",
+            "name": "Communication number",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 256
+            },
+            "notes": "Complete communications number including country or area code when applicable"
+          },
+          {
+            "id": "PER09",
+            "name": "Contact Inquiry Referenct",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 20
+            },
+            "notes": "Not used"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_N3",
+    "type": "loop",
+    "name": "Member Residence Street Address",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "N3",
+        "type": "segment",
+        "name": "Member Communications Number",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "To specify the location of the named party",
+        "elements": [
+          {
+            "id": "N301",
+            "name": "Address information",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 55
+            },
+            "notes": "Address information"
+          },
+          {
+            "id": "N302",
+            "name": "Address information",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 55
+            },
+            "notes": "Address information"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_N4",
+    "type": "loop",
+    "name": "Member Residence City, State, Zip Code",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "N4",
+        "type": "segment",
+        "name": "Member Residence City, State, Zip Code",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "To specify the location of the named party",
+        "elements": [
+          {
+            "id": "N401",
+            "name": "City name",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 30
+            },
+            "notes": "Address information"
+          },
+          {
+            "id": "N402",
+            "name": "State or province code",
+            "type": "element",
+            "req": "S",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 2
+            },
+            "notes": "Address information"
+          },
+          {
+            "id": "N403",
+            "name": "Zip Code",
+            "type": "element",
+            "req": "S",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 3,
+              "max": 15
+            },
+            "notes": "Address information"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_DMG",
+    "type": "loop",
+    "name": "Member Demographics",
+    "req": "M",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "DMG",
+        "type": "segment",
+        "name": "Member Demographics",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "To supply demographic information",
+        "elements": [
+          {
+            "id": "DMG01",
+            "name": "Date/Time Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Code indicating the date format, time format, or date and time format"
+          },
+          {
+            "id": "DMG02",
+            "name": "Date time period",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 35
+            },
+            "notes": "Expression of date"
+          },
+          {
+            "id": "DMG03",
+            "name": "gender code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "Code indicating the sex of the individual"
+          },
+          {
+            "id": "DMG04",
+            "name": "Marital Status",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "Code defining the marital status of a person"
+          },
+          {
+            "id": "DMG05",
+            "name": "Composite race or ethnicity information",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_ICM",
+    "type": "loop",
+    "name": "Member Income",
+    "req": "R",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "ICM",
+        "type": "segment",
+        "name": "Member Income",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "To supply information to determine benefit eligibility, deductibles and retirement and investiment contributions.",
+        "elements": [
+          {
+            "id": "ICM01",
+            "name": "Frequency Code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "Code indicating frequency or type of payment"
+          },
+          {
+            "id": "ICM02",
+            "name": "Monetary amount",
+            "type": "element",
+            "req": "M",
+            "data_type": "R",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 18
+            },
+            "notes": "Monetary amount (wage)"
+          },
+          {
+            "id": "ICM03",
+            "name": "Quantity",
+            "type": "element",
+            "req": "S",
+            "data_type": "R",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 15
+            },
+            "notes": "Work hours count - weekly hours worked"
+          },
+          {
+            "id": "ICM04",
+            "name": "Location identifier",
+            "type": "element",
+            "req": "S",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 30
+            },
+            "notes": "Effective date of salary"
+          },
+          {
+            "id": "ICM05",
+            "name": "Salary grade",
+            "type": "element",
+            "req": "S",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 5
+            },
+            "notes": ""
+          },
+          {
+            "id": "ICM06",
+            "name": "Currency Code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 3,
+              "max": 3
+            },
+            "notes": "Not used"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_HD",
+    "type": "loop",
+    "name": "Health Coverage",
+    "req": "R",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "HD",
+        "type": "segment",
+        "name": "Health Coverage",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "To provide information on health coverage",
+        "elements": [
+          {
+            "id": "HD01",
+            "name": "Maintenance type code",
+            "type": "element",
+            "req": "R",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 3,
+              "max": 3
+            },
+            "notes": "Code indicating the specific type of item maintenance"
+          },
+          {
+            "id": "HD02",
+            "name": "Maintenance Reason Code",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Not used"
+          },
+          {
+            "id": "HD03",
+            "name": "Insurance line code",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Code identifying a group of insurance products"
+          },
+          {
+            "id": "HD04",
+            "name": "Plan Coverage Description",
+            "type": "element",
+            "req": "S",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 50
+            },
+            "notes": "A description or number that describes the plan or coverage."
+          },
+          {
+            "id": "HD05",
+            "name": "Coverage level code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 3,
+              "max": 3
+            },
+            "notes": "Code indicating the level of coverage being provided for the insured."
+          },
+          {
+            "id": "HD06",
+            "name": "Count",
+            "type": "element",
+            "req": "O",
+            "data_type": "N0",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 9
+            },
+            "notes": "Not Used"
+          },
+          {
+            "id": "HD07",
+            "name": "Count",
+            "type": "element",
+            "req": "O",
+            "data_type": "N0",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 9
+            },
+            "notes": "Not Used"
+          },
+          {
+            "id": "HD08",
+            "name": "Underwriting desicion code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "not used"
+          },
+          {
+            "id": "HD09",
+            "name": "Yes/No Condition",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "Code indicating a yes/no response"
+          },
+          {
+            "id": "HD10",
+            "name": "Drug house code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "not used"
+          },
+          {
+            "id": "HD11",
+            "name": "Yes/No Condition",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "not used"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_DTP",
+    "type": "loop",
+    "name": "Health Coverage Dates",
+    "req": "R",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "DTP",
+        "type": "segment",
+        "name": "Health Coverage Dates",
+        "req": "M",
+        "max_uses": 1200,
+        "notes": "To specify any or all of a date, a time, or a time period",
+        "elements": [
+          {
+            "id": "DTP01",
+            "name": "Date/Time Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 3,
+              "max": 3
+            },
+            "notes": "Code specifying the type of date or time, or both date and time"
+          },
+          {
+            "id": "DTP02",
+            "name": "Date/time Period Format Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "Code indicating the date format, time format, or date and time format"
+          },
+          {
+            "id": "DTP03",
+            "name": "Date/Time Period",
+            "type": "element",
+            "req": "M",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 35
+            },
+            "notes": "Expression of a date, a time, or range of dates, times or dates and times"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "L_REF5",
+    "type": "loop",
+    "name": "Health Coverage Policy Number",
+    "req": "O",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "REF",
+        "type": "segment",
+        "name": "Health Coverage Policy Number",
         "req": "O",
-        "max_uses": 10,
-        "notes": "To specify pertinent dates and times",
+        "max_uses": 1200,
+        "notes": "To specify identifying information",
         "elements": [
-            {
-                "id": "DTP01",
-                "type": "element",
-                "name": "Date/Time Qualifier",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "007": "Effective"
-                },
-                "length": {
-                    "min": 3,
-                    "max": 3
-                },
-                "notes": "Code to identify the type of information in the Authorization Information"
+          {
+            "id": "REF01",
+            "name": "Reference Identification Qualifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
             },
-            {
-                "id": "DTP02",
-                "type": "element",
-                "name": "Date time period format qualifier",
-                "req": "M",
-                "data_type": "ID",
-                "data_type_ids": {
-                    "D8": "Date in CCYYMMDD"
-                },
-                "length": {
-                    "min": 2,
-                    "max": 3
-                },
-                "notes": "Code indicating the date format"
+            "notes": "Code qualifying the reference identification"
+          },
+          {
+            "id": "REF02",
+            "name": "Reference Identification",
+            "type": "element",
+            "req": "X",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 50
             },
-            {
-                "id": "DTP03",
-                "type": "element",
-                "name": "Date time period",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 35
-                },
-                "notes": "Date expressed as CCYYMMDD where CC represents the first two digits of the calendar year"
-            }
-
+            "notes": "Reference information as defined for a particular Transaction Set or as specified by the Reference Identification Qualifier ( group plan number )."
+          },
+          {
+            "id": "REF03",
+            "name": "Description",
+            "type": "element",
+            "req": "X",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 80
+            },
+            "notes": "Not used"
+          },
+          {
+            "id": "REF04",
+            "name": "Reference identifier",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 80
+            },
+            "notes": "Not used"
+          }
         ]
-    },
-    {
-        "id": "L_1000A",
-        "type": "loop",
-        "name": "Sponsor Name Loop",
-        "req": "M",
-        "repeat": 200,
-        "segments": [
-            {
-                "id": "N1",
-                "type": "segment",
-                "name": "Party Identification",
-                "req": "M",
-                "max_uses": 1,
-                "notes": "To identify a party by type of organization, name, and code",
-                "elements": [
-                    {
-                        "id": "N101",
-                        "name": "Entity Identifier Code",
-                        "type": "element",
-                        "req": "M",
-                        "data_type": "ID",
-                        "data_type_ids": {
-                            "P5": "Plan sponsor"
-                        },
-                        "length": {
-                            "min": 2,
-                            "max": 3
-                        },
-                        "notes": "Code identifying an organizational entity, a physical location, property or an individual"
-                    },
-                    {
-                        "id": "N102",
-                        "name": "Name",
-                        "type": "element",
-                        "req": "O",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 60
-                        },
-                        "notes": "Free-form plan name"
-                    },
-                    {
-                        "id": "N103",
-                        "name": "Identification Code Qualifier",
-                        "type": "element",
-                        "req": "M",
-                        "data_type": "ID",
-                        "data_type_ids": {
-                            "24": "Employer's Identification Number",
-                            "94": "Destination of transation set",
-                            "FI": "Federal taxpayer's identification number"
-                        },
-                        "length": {
-                            "min": 1,
-                            "max": 2
-                        },
-                        "notes": "Code designating the system/method of code structure used for Identification Code (67)"
-                    },
-                    {
-                        "id": "N104",
-                        "name": "Identification Code",
-                        "type": "element",
-                        "req": "M",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "N105",
-                        "name": "Entity Relationship Code",
-                        "type": "element",
-                        "req": "O",
-                        "data_type": "ID",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 2
-                        },
-                        "notes": "Not Used"
-                    },
-                    {
-                        "id": "N106",
-                        "name": "Entity Identifer code",
-                        "type": "element",
-                        "req": "O",
-                        "data_type": "ID",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 3
-                        },
-                        "notes": "Not Used"
-                    }
-
-                ]
-            }    
-        ]
-    },
-    {
-        "id": "L_1000B",
-        "type": "loop",
-        "name": "Payer Loop",
-        "req": "M",
-        "repeat": 200,
-        "segments": [
-            {
-                "id": "N1",
-                "type": "segment",
-                "name": "Baseline Item Data",
-                "req": "M",
-                "max_uses": 1,
-                "notes": "To specify basic and most frequently used line item data",
-                "elements": [
-                    {
-                        "id": "N101",
-                        "name": "Entity Identifier Code",
-                        "type": "element",
-                        "req": "M",
-                        "data_type": "ID",
-                        "data_type_ids": {
-                            "IN": "Insurer"
-                        },
-                        "length": {
-                            "min": 2,
-                            "max": 3
-                        },
-                        "notes": "Code identifying an organizational entity, a physical location, property or an individual"
-                    },
-                    {
-                        "id": "N102",
-                        "name": "Name",
-                        "type": "element",
-                        "req": "M",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 1,
-                            "max": 60
-                        },
-                        "notes": "Free-form name"
-                    },
-                    {
-                        "id": "N103",
-                        "name": "Identification Code Qualifier",
-                        "type": "element",
-                        "req": "M",
-                        "data_type": "ID",
-                        "data_type_ids": {
-                            "94": "Destination of transation set",
-                            "FI": "Federal taxpayer's identification number",
-                            "XV": "Health care financing administration national payer identification number"
-                        },
-                        "length": {
-                            "min": 1,
-                            "max": 2
-                        },
-                        "notes": "Code designating the system/method of code structure used for Identification Code (67)"
-                    },
-                    {
-                        "id": "N104",
-                        "name": "Identification Code",
-                        "type": "element",
-                        "req": "M",
-                        "data_type": "AN",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 80
-                        },
-                        "notes": "Code identifying a party or other code"
-                    },
-                    {
-                        "id": "N105",
-                        "name": "Entity Relationship Code",
-                        "type": "element",
-                        "req": "O",
-                        "data_type": "ID",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 2
-                        },
-                        "notes": "Not Used"
-                    },
-                    {
-                        "id": "N106",
-                        "name": "Entity Identifer code",
-                        "type": "element",
-                        "req": "O",
-                        "data_type": "ID",
-                        "data_type_ids": null,
-                        "length": {
-                            "min": 2,
-                            "max": 3
-                        },
-                        "notes": "Not Used"
-                    }
-                ]
-            }
-        ]
-    },
-            {
-                "id": "L_2000",
-                "type": "loop",
-                "name": "Member Level Detail Loop",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "INS",
-                        "type": "segment",
-                        "name": "Insured information",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "to provide benefit information on insured entities",
-                        "elements": [
-                            {
-                                "id": "INS01",
-                                "name": "Yes/No Condition",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "Y": "Subscriber record",
-                                    "N": "Dependent record"
-                                },
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "Indication of subscriber/dependent"
-                            },
-                            {
-                                "id": "INS02",
-                                "name": "Individual relationship code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "01": "Spouse",
-                                    "03": "Father or Mother",
-                                    "04": "Grandfather or Grandmother",
-                                    "05": "Grandson or Granddaughter",
-                                    "06": "Aunt or Uncle",
-                                    "07": "Nephew or Niece",
-                                    "08": "Cousin",
-                                    "09": "Adopted Child",
-                                    "10": "Foster Child",
-                                    "11": "Son-in-law or daughter-in-law",
-                                    "12": "Brother-in-law or Sister-in-law",
-                                    "13": "Mother-in-law or father-in-law",
-                                    "14": "Brother or Sister",
-                                    "15": "Ward",
-                                    "16": "Stepparent",
-                                    "17": "Stepson or stepdaughter",
-                                    "18": "Self/subscriber",
-                                    "19": "Child",
-                                    "23": "sponsored dependent",
-                                    "24": "Dependent of minor dependent",
-                                    "25": "Ex-spouse",
-                                    "26": "Guardian",
-                                    "31": "Court appointed guardian",
-                                    "38": "Collateral Dependent",
-                                    "53": "Life Partner",
-                                    "60": "Annuitant",
-                                    "D2": "Trustee",
-                                    "G8": "Other Relationship",
-                                    "G9": "Other Relative"
-                                },
-                                "length": {
-                                    "min": 2,
-                                    "max": 2
-                                },
-                                "notes": "Code identifying relationship to subscriber"
-                            },
-                            {
-                                "id": "INS03",
-                                "name": "Maintenance Type Code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "001": "Change",
-                                    "021": "Addition",
-                                    "024": "Termination",
-                                    "025": "Reinstatement",
-                                    "030": "Audit or compare (full file)"
-                                },
-                                "length": {
-                                    "min": 3,
-                                    "max": 3
-                                },
-                                "notes": "Price per unit of product, service, commodity, etc."
-                            },
-                            {
-                                "id": "INS04",
-                                "name": "Maintenance Reason Code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Reason for maintenance change"
-                            },
-                            {
-                                "id": "INS05",
-                                "name": "Benefit status code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "A": "Active",
-                                    "C": "COBRA",
-                                    "S": "Surviving Insured",
-                                    "T": "TEFRA"
-                                },
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "The type of coverage under which benefits are paid"
-                            },
-                            {
-                                "id": "INS06",
-                                "name": "Medicare Status Code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": ""
-                            },
-                            {
-                                "id": "INS07",
-                                "name": "COBRA",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "Qualifying event code, can be blank"
-                            },
-                            {
-                                "id": "INS08",
-                                "name": "Employment status code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 2
-                                },
-                                "notes": "Qualifying event code, can be blank"
-                            },
-                            {
-                                "id": "INS09",
-                                "name": "Student Status Code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "Student Status, non-spose dependents"
-                            },
-                            {
-                                "id": "INS09",
-                                "name": "Student Status Code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "Student Status, non-spose dependents"
-                            },
-                            {
-                                "id": "INS10",
-                                "name": "Handicap Indicator",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    
-                                },
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "This element is required if a dependent is disabled"
-                            }
-
-
-
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2000_REF",
-                "type": "loop",
-                "name": "Subscriber Identifier",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "REF",
-                        "type": "segment",
-                        "name": "Subscriber Identifier",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "to specify identifying information",
-                        "elements": [
-                            {
-                                "id": "REF01",
-                                "name": "Reference Identification Qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "OF": "Subscriber Number"
-                                },
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF02",
-                                "name": "Reference Identification",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF03",
-                                "name": "Description",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 80
-                                },
-                                "notes": "not used"
-                            },
-                            {
-                                "id": "REF04",
-                                "name": "Reference Identifier",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "Not used"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2000_REF",
-                "type": "loop",
-                "name": "Subscriber Identifier",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "REF",
-                        "type": "segment",
-                        "name": "Subscriber Identifier",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "to specify identifying information",
-                        "elements": [
-                            {
-                                "id": "REF01",
-                                "name": "Reference Identification Qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "OF": "Subscriber Number"
-                                },
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF02",
-                                "name": "Reference Identification",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF03",
-                                "name": "Description",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 80
-                                },
-                                "notes": "not used"
-                            },
-                            {
-                                "id": "REF04",
-                                "name": "Reference Identifier",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "Not used"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2000_MPN",
-                "type": "loop",
-                "name": "Member Policy Number",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "REF",
-                        "type": "segment",
-                        "name": "Member Policy Number",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "to specify identifying information",
-                        "elements": [
-                            {
-                                "id": "REF01",
-                                "name": "Reference Identification Qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "1L": "Group or Policy Number"
-                                },
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF02",
-                                "name": "Reference Identification",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF03",
-                                "name": "Description",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 80
-                                },
-                                "notes": "not used"
-                            },
-                            {
-                                "id": "REF04",
-                                "name": "Reference Identifier",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "Not used"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2000_MSI",
-                "type": "loop",
-                "name": "Member Supplemental Identifier",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "REF",
-                        "type": "segment",
-                        "name": "Member Supplemental Identifier",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "to specify identifying information",
-                        "elements": [
-                            {
-                                "id": "REF01",
-                                "name": "Reference Identification Qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "ZZ": "Mutually Defined"
-                                },
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF02",
-                                "name": "Reference Identification",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 30
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF03",
-                                "name": "Description",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 80
-                                },
-                                "notes": "not used"
-                            },
-                            {
-                                "id": "REF04",
-                                "name": "Reference Identifier",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "Not used"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2000_DTP",
-                "type": "loop",
-                "name": "Member Leval Dates",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "DTP",
-                        "type": "segment",
-                        "name": "Member Level Dates",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "to specify any or all of a date, a time, or a time period",
-                        "elements": [
-                            {
-                                "id": "DTP01",
-                                "name": "Date/Time Qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 3,
-                                    "max": 3
-                                },
-                                "notes": "Code specifying the type of date or time"
-                            },
-                            {
-                                "id": "DTP02",
-                                "name": "Date time Period Format",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "D8": "Date in CCYYMMDD"
-                                },
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Code indicating the date format, time format, or date and time format"
-                            },
-                            {
-                                "id": "DTP03",
-                                "name": "Date Time Period",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 35
-                                },
-                                "notes": "Expression of a date, a time, or range of dates, times or dates and times"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2100A",
-                "type": "loop",
-                "name": "Member Name",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "NM",
-                        "type": "segment",
-                        "name": "Member Name",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "to supply the full name of an individual or organizational entity",
-                        "elements": [
-                            {
-                                "id": "NM101",
-                                "name": "Entity Identifer code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "IL": "Insured or Subscriber",
-                                    "74": "Corrected Insured"
-                                },
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "NM102",
-                                "name": "Entity type qualifer",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "1": "Person"
-                                },
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "Code qualifying the type of entity"
-                            },
-                            {
-                                "id": "NM103",
-                                "name": "Name last or organization name",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 60
-                                },
-                                "notes": "Individual last name or organization name"
-                            },
-                            {
-                                "id": "NM104",
-                                "name": "Name First",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 35
-                                },
-                                "notes": "Individual first name"
-                            },
-                            {
-                                "id": "NM105",
-                                "name": "Name Middle",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 25
-                                },
-                                "notes": "Individual middle name"
-                            },
-                            {
-                                "id": "NM106",
-                                "name": "Name Prefix",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 10
-                                },
-                                "notes": "Leave blank"
-                            },
-                            {
-                                "id": "NM107",
-                                "name": "Name Suffix",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 10
-                                },
-                                "notes": "Leave blank"
-                            },
-                            {
-                                "id": "NM108",
-                                "name": "Code qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 2
-                                },
-                                "notes": "Code designating the method of code structure used for identification code"
-                            },
-                            {
-                                "id": "NM109",
-                                "name": "ID code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 80
-                                },
-                                "notes": "Leave blank"
-                            },
-                            {
-                                "id": "NM110",
-                                "name": "Entity Relationship Code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 2
-                                },
-                                "notes": "Note used"
-                            },
-                            {
-                                "id": "NM111",
-                                "name": "Entity Identifer code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Note used"
-                            },
-                            {
-                                "id": "NM12",
-                                "name": "Name last or organization name",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 60
-                                },
-                                "notes": "Note used"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2100A_PER",
-                "type": "loop",
-                "name": "Member Communications Number",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "PER",
-                        "type": "segment",
-                        "name": "Member Communications Number",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To identify a person or office to whom administrative communications should be directed",
-                        "elements": [
-                            {
-                                "id": "PER01",
-                                "name": "Contact function code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": {
-                                    "IP": "Insured Party"
-                                },
-                                "length": {
-                                    "min": 2,
-                                    "max": 2
-                                },
-                                "notes": "Code qualifying the major duty or responsibility of the person or group named"
-                            },
-                            {
-                                "id": "PER02",
-                                "name": "Name",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 60
-                                },
-                                "notes": "Not used"
-                            },
-                            {
-                                "id": "PER03",
-                                "name": "Communication number qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 2
-                                },
-                                "notes": "Code identifying the type of communication number"
-                            },
-                            {
-                                "id": "PER04",
-                                "name": "Communication number",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 256
-                                },
-                                "notes": "Complete communications number including country or area code when applicable"
-                            },
-                            {
-                                "id": "PER05",
-                                "name": "Communication number qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 2
-                                },
-                                "notes": "Code identifying the type of communication number"
-                            },
-                            {
-                                "id": "PER06",
-                                "name": "Communication number",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 256
-                                },
-                                "notes": "Complete communications number including country or area code when applicable"
-                            },
-                            {
-                                "id": "PER07",
-                                "name": "Communication number qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 2
-                                },
-                                "notes": "Code identifying the type of communication number"
-                            },
-                            {
-                                "id": "PER08",
-                                "name": "Communication number",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 256
-                                },
-                                "notes": "Complete communications number including country or area code when applicable"
-                            },
-                            {
-                                "id": "PER09",
-                                "name": "Contact Inquiry Referenct",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 20
-                                },
-                                "notes": "Not used"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2100A_MRSA",
-                "type": "loop",
-                "name": "Member Residence Street Address",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "N3",
-                        "type": "segment",
-                        "name": "Member Communications Number",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To specify the location of the named party",
-                        "elements": [
-                            {
-                                "id": "N301",
-                                "name": "Address information",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 55
-                                },
-                                "notes": "Address information"
-                            },
-                            {
-                                "id": "N302",
-                                "name": "Address information",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 55
-                                },
-                                "notes": "Address information"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2100A_MRCSZ",
-                "type": "loop",
-                "name": "Member Residence City, State, Zip Code",
-                "req": "M",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "N4",
-                        "type": "segment",
-                        "name": "Member residence city,state,zip code",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To specify the geographic place of the named party",
-                        "elements": [
-                            {
-                                "id": "N401",
-                                "name": "City Name",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 30
-                                },
-                                "notes": "Free form text for city name"
-                            },
-                            {
-                                "id": "N402",
-                                "name": "State or province code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 2
-                                },
-                                "notes": "State code"
-                            },
-                            {
-                                "id": "N403",
-                                "name": "Postal code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 3,
-                                    "max": 15
-                                },
-                                "notes": "Postal code"
-                            },
-                            {
-                                "id": "N404",
-                                "name": "County code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 3,
-                                    "max": 15
-                                },
-                                "notes": "County code"
-                            },
-                            {
-                                "id": "N405",
-                                "name": "Location code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 2
-                                },
-                                "notes": "Location code"
-                            },
-                            {
-                                "id": "N406",
-                                "name": "Location Identifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 30
-                                },
-                                "notes": "Location Identifier"
-                            },
-                            {
-                                "id": "N407",
-                                "name": "Country Subdivision Code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 3
-                                },
-                                "notes": "Country Subdivision Code"
-                            }
-                        ]
-                    }
-                ]
-            }, 
-            {
-                "id": "L_2100A_MI",
-                "type": "loop",
-                "name": "Member Income",
-                "req": "R",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "ICM",
-                        "type": "segment",
-                        "name": "Member Income",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To supply information to determine benefit eligibility, deductibles and retirement and investiment contributions.",
-                        "elements": [
-                            {
-                                "id": "ICM01",
-                                "name": "Frequency Code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "Code indicating frequency or type of payment"
-                            },
-                            {
-                                "id": "ICM02",
-                                "name": "Monetary amount",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "R",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 18 
-                                },
-                                "notes": "Monetary amount (wage)"
-                            },
-                            {
-                                "id": "ICM03",
-                                "name": "Quantity",
-                                "type": "element",
-                                "req": "S",
-                                "data_type": "R",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 15
-                                },
-                                "notes": "Work hours count - weekly hours worked"
-                            },
-                            {
-                                "id": "ICM04",
-                                "name": "Location identifier",
-                                "type": "element",
-                                "req": "S",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 30
-                                },
-                                "notes": "Effective date of salary"
-                            },
-                            {
-                                "id": "ICM05",
-                                "name": "Salary grade",
-                                "type": "element",
-                                "req": "S",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 5
-                                },
-                                "notes": ""
-                            },
-                            {
-                                "id": "ICM06",
-                                "name": "Currency Code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 3,
-                                    "max": 3 
-                                },
-                                "notes": "Not used"
-                            }
-                        ]
-                    }
-                            
-                ]
-            },
-            {
-                "id": "L_2300",
-                "type": "loop",
-                "name": "Health Coverage",
-                "req": "R",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "HD",
-                        "type": "segment",
-                        "name": "Health Coverage",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To provide information on health coverage",
-                        "elements": [
-                            {
-                                "id": "HD01",
-                                "name": "Maintenance type code",
-                                "type": "element",
-                                "req": "R",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 3,
-                                    "max": 3 
-                                },
-                                "notes": "Code indicating the specific type of item maintenance"
-                            },
-                            {
-                                "id": "HD02",
-                                "name": "Maintenance Reason Code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Not used"
-                            },
-                            {
-                                "id": "HD03",
-                                "name": "Insurance line code",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Code identifying a group of insurance products"
-                            },
-                            {
-                                "id": "HD04",
-                                "name": "Plan Coverage Description",
-                                "type": "element",
-                                "req": "S",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "A description or number that describes the plan or coverage."
-                            },
-                            {
-                                "id": "HD05",
-                                "name": "Coverage level code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 3,
-                                    "max": 3
-                                },
-                                "notes": "Code indicating the level of coverage being provided for the insured."
-                            },
-                            {
-                                "id": "HD06",
-                                "name": "Count",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "N0",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 9 
-                                },
-                                "notes": "Not Used"
-                            },                            
-                            {
-                                "id": "HD07",
-                                "name": "Count",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "N0",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 9 
-                                },
-                                "notes": "Not Used"
-                            },
-                            {
-                                "id": "HD08",
-                                "name": "Underwriting desicion code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "not used"
-                            },
-                            {
-                                "id": "HD09",
-                                "name": "Yes/No Condition",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "Code indicating a yes/no response"
-                            },
-                            {
-                                "id": "HD10",
-                                "name": "Drug house code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3 
-                                },
-                                "notes": "not used"
-                            },
-                            {
-                                "id": "HD11",
-                                "name": "Yes/No Condition",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1 
-                                },
-                                "notes": "not used"
-                            }
-                        ]
-
-                    }
-                ]
-            }, 
-            {
-                "id": "L_2300_DTP",
-                "type": "loop",
-                "name": "Health Coverage Dates",
-                "req": "R",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "DTP",
-                        "type": "segment",
-                        "name": "Health Coverage Dates",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To specify any or all of a date, a time, or a time period",
-                        "elements": [
-                            {
-                                "id": "DTP01",
-                                "name": "Date/Time Qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 3,
-                                    "max": 3 
-                                },
-                                "notes": "Code specifying the type of date or time, or both date and time"
-                            },
-                            {
-                                "id": "DTP02",
-                                "name": "Date/time Period Format Qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3
-                                },
-                                "notes": "Code indicating the date format, time format, or date and time format"
-                            },
-                            {
-                                "id": "DTP03",
-                                "name": "Date/Time Period",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 35
-                                },
-                                "notes": "Expression of a date, a time, or range of dates, times or dates and times"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2300_REF",
-                "type": "loop",
-                "name": "Health Coverage Policy Number",
-                "req": "R",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "REF",
-                        "type": "segment",
-                        "name": "Health Coverage Policy Number",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To specify identifying information",
-                        "elements": [
-                            {
-                                "id": "REF01",
-                                "name": "Reference Identification Qualifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3 
-                                },
-                                "notes": "Code qualifying the reference identification"
-                            },
-                            {
-                                "id": "REF02",
-                                "name": "Reference Identification",
-                                "type": "element",
-                                "req": "X",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 50
-                                },
-                                "notes": "Reference information as defined for a particular Transaction Set or as specified by the Reference Identification Qualifier ( group plan number )."
-                            },
-                            {
-                                "id": "REF03",
-                                "name": "Description",
-                                "type": "element",
-                                "req": "X",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 80
-                                },
-                                "notes": "Not used"
-                            },
-                            {
-                                "id": "REF04",
-                                "name": "Reference identifier",
-                                "type": "element",
-                                "req": "O",
-                                "notes": "Not used"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2300_LX",
-                "type": "loop",
-                "name": "Provider Information",
-                "req": "S",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "LX",
-                        "type": "segment",
-                        "name": "Provider Information",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To reference a line number in a transaction set",
-                        "elements": [
-                            {
-                                "id": "LX01",
-                                "name": "Assigned number",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "N0",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 6
-                                },
-                                "notes": "Required"
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "id": "L_2300_NM1",
-                "type": "loop",
-                "name": "Provider name",
-                "req": "R",
-                "repeat": 1200,
-                "segments": [
-                    {
-                        "id": "NM1",
-                        "type": "segment",
-                        "name": "Provider name",
-                        "req": "M",
-                        "max_uses": 1200,
-                        "notes": "To supply the full name of an individual or organized entity",
-                        "elements": [
-                            {
-                                "id": "NM101",
-                                "name": "Entity identifier",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3 
-                                },
-                                "notes": "Code identifying an organizational entity, a physical location, property or an individual"
-                            },
-                            {
-                                "id": "NM102",
-                                "name": "Entity type qualifer",
-                                "type": "element",
-                                "req": "M",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 1
-                                },
-                                "notes": "Code qualifying the type of entity"
-                            },
-                            {
-                                "id": "NM103",
-                                "name": "Name last or organization name",
-                                "type": "element",
-                                "req": "X",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 80
-                                },
-                                "notes": "Individual last name or organization name"
-                            },
-                            {
-                                "id": "NM104",
-                                "name": "Name First",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 35
-                                },
-                                "notes": "Individual first name"
-                            },
-                            {
-                                "id": "NM105",
-                                "name": "Name middle",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 25
-                                },
-                                "notes": "Individual middle name"
-                            },
-                            {
-                                "id": "NM106",
-                                "name": "Name prefix",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 10 
-                                },
-                                "notes": "Prefix to individual name"
-                            },
-                            {
-                                "id": "NM107",
-                                "name": "Name suffix",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 10 
-                                },
-                                "notes": "Suffix to individual name"
-                            },
-                            {
-                                "id": "NM108",
-                                "name": "Identification Code Qualifier",
-                                "type": "element",
-                                "req": "X",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 2
-                                },
-                                "notes": "Code designating the system/method of code structure used for Identification Code (67)"
-                            },
-                            {
-                                "id": "NM109",
-                                "name": "Identification Code",
-                                "type": "element",
-                                "req": "X",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 80
-                                },
-                                "notes": "Code identifying a party or other code"
-                            },
-                            {
-                                "id": "NM110",
-                                "name": "Entity Relationship Code",
-                                "type": "element",
-                                "req": "X",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 2 
-                                },
-                                "notes": "Code describing entity relationship"
-                            },
-                            {
-                                "id": "NM111",
-                                "name": "Entity Identifier Code",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "ID",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 2,
-                                    "max": 3 
-                                },
-                                "notes": "not used"
-                            },
-                            {
-                                "id": "NM112",
-                                "name": "Name last or organization name",
-                                "type": "element",
-                                "req": "O",
-                                "data_type": "AN",
-                                "data_type_ids": null,
-                                "length": {
-                                    "min": 1,
-                                    "max": 60 
-                                },
-                                "notes": "not used"
-                            }
-                        ]
-                    }
-                ]
-            },
-    {
-        "id": "SE",
+      }
+    ]
+  },
+  {
+    "id": "L_LX",
+    "type": "loop",
+    "name": "Provider Information",
+    "req": "O",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "LX",
         "type": "segment",
-        "name": "Transaction Set Trailer",
-        "req": "M",
-        "max_uses": 1,
-        "notes": "To indicate the end of the transaction set and provide the count of the transmitted segments (including the beginning (ST) and ending (SE) segments)",
+        "name": "Provider Information",
+        "req": "O",
+        "max_uses": 1200,
+        "notes": "To reference a line number in a transaction set",
         "elements": [
-            {
-                "id": "SE01",
-                "type": "element",
-                "name": "Number of Included Segments",
-                "req": "M",
-                "data_type": "N0",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 10
-                },
-                "notes": "Total number of segments included in a transaction set including ST and SE segments"
+          {
+            "id": "LX01",
+            "name": "Assigned number",
+            "type": "element",
+            "req": "M",
+            "data_type": "N0",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 6
             },
-            {
-                "id": "SE02",
-                "type": "element",
-                "name": "Transaction Set Control Number",
-                "req": "M",
-                "data_type": "AN",
-                "data_type_ids": null,
-                "length": {
-                    "min": 4,
-                    "max": 9
-                },
-                "notes": "Identifying control number that must be unique within the transaction set functional group assigned by the originator for a transaction set"
-            }
+            "notes": "Required"
+          }
         ]
-    },
-    {
-        "id": "GE",
+      }
+    ]
+  },
+  {
+    "id": "L_NM1",
+    "type": "loop",
+    "name": "Provider name",
+    "req": "R",
+    "repeat": 1200,
+    "segments": [
+      {
+        "id": "NM1",
         "type": "segment",
-        "name": "Functional Group Trailer",
+        "name": "Provider name",
         "req": "M",
-        "max_uses": 1,
-        "notes": "To indicate the end of a functional group and to provide control information",
+        "max_uses": 1200,
+        "notes": "To supply the full name of an individual or organized entity",
         "elements": [
-            {
-                "id": "GE01",
-                "type": "element",
-                "name": "Number of Transaction Sets Included",
-                "req": "M",
-                "data_type": "N0",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 6
-                },
-                "notes": "Total number of transaction sets included in the functional group or interchange (transmission) group terminated by the trailer containing this data element"
+          {
+            "id": "NM101",
+            "name": "Entity identifier",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
             },
-            {
-                "id": "GE02",
-                "type": "element",
-                "name": "Group Control Number",
-                "req": "M",
-                "data_type": "N0",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 9
-                },
-                "notes": "Assigned number originated and maintained by the sender"
-            }
+            "notes": "Code identifying an organizational entity, a physical location, property or an individual"
+          },
+          {
+            "id": "NM102",
+            "name": "Entity type qualifer",
+            "type": "element",
+            "req": "M",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 1
+            },
+            "notes": "Code qualifying the type of entity"
+          },
+          {
+            "id": "NM103",
+            "name": "Name last or organization name",
+            "type": "element",
+            "req": "X",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 80
+            },
+            "notes": "Individual last name or organization name"
+          },
+          {
+            "id": "NM104",
+            "name": "Name First",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 35
+            },
+            "notes": "Individual first name"
+          },
+          {
+            "id": "NM105",
+            "name": "Name middle",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 25
+            },
+            "notes": "Individual middle name"
+          },
+          {
+            "id": "NM106",
+            "name": "Name prefix",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 10
+            },
+            "notes": "Prefix to individual name"
+          },
+          {
+            "id": "NM107",
+            "name": "Name suffix",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 10
+            },
+            "notes": "Suffix to individual name"
+          },
+          {
+            "id": "NM108",
+            "name": "Identification Code Qualifier",
+            "type": "element",
+            "req": "X",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 2
+            },
+            "notes": "Code designating the system/method of code structure used for Identification Code (67)"
+          },
+          {
+            "id": "NM109",
+            "name": "Identification Code",
+            "type": "element",
+            "req": "X",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 80
+            },
+            "notes": "Code identifying a party or other code"
+          },
+          {
+            "id": "NM110",
+            "name": "Entity Relationship Code",
+            "type": "element",
+            "req": "X",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 2
+            },
+            "notes": "Code describing entity relationship"
+          },
+          {
+            "id": "NM111",
+            "name": "Entity Identifier Code",
+            "type": "element",
+            "req": "O",
+            "data_type": "ID",
+            "data_type_ids": null,
+            "length": {
+              "min": 2,
+              "max": 3
+            },
+            "notes": "not used"
+          },
+          {
+            "id": "NM112",
+            "name": "Name last or organization name",
+            "type": "element",
+            "req": "O",
+            "data_type": "AN",
+            "data_type_ids": null,
+            "length": {
+              "min": 1,
+              "max": 60
+            },
+            "notes": "not used"
+          }
         ]
-    },
-    {
-        "id": "IEA",
-        "type": "segment",
-        "name": "Interchange Control Trailer",
+      }
+    ]
+  },
+  {
+    "id": "SE",
+    "type": "segment",
+    "name": "Transaction Set Trailer",
+    "req": "M",
+    "max_uses": 1,
+    "notes": "To indicate the end of the transaction set and provide the count of the transmitted segments (including the beginning (ST) and ending (SE) segments)",
+    "elements": [
+      {
+        "id": "SE01",
+        "type": "element",
+        "name": "Number of Included Segments",
         "req": "M",
-        "max_uses": 1,
-        "notes": "To define the end of an interchange of zero or more functional groups and interchange-related control segments",
-        "elements": [
-            {
-                "id": "IEA01",
-                "type": "element",
-                "name": "Number of Included Functional Groups",
-                "req": "M",
-                "data_type": "N0",
-                "data_type_ids": null,
-                "length": {
-                    "min": 1,
-                    "max": 5
-                },
-                "notes": "A count of the number of functional groups included in an interchange"
-            },
-            {
-                "id": "IEA02",
-                "type": "element",
-                "name": "Interchange Control Number",
-                "req": "M",
-                "data_type": "N0",
-                "data_type_ids": null,
-                "length": {
-                    "min": 9,
-                    "max": 9
-                },
-                "notes": "A control number assigned by the interchange sender"
-            }
-        ]
-    }
+        "data_type": "N0",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 10
+        },
+        "notes": "Total number of segments included in a transaction set including ST and SE segments"
+      },
+      {
+        "id": "SE02",
+        "type": "element",
+        "name": "Transaction Set Control Number",
+        "req": "M",
+        "data_type": "AN",
+        "data_type_ids": null,
+        "length": {
+          "min": 4,
+          "max": 9
+        },
+        "notes": "Identifying control number that must be unique within the transaction set functional group assigned by the originator for a transaction set"
+      }
+    ]
+  },
+  {
+    "id": "GE",
+    "type": "segment",
+    "name": "Functional Group Trailer",
+    "req": "M",
+    "max_uses": 1,
+    "notes": "To indicate the end of a functional group and to provide control information",
+    "elements": [
+      {
+        "id": "GE01",
+        "type": "element",
+        "name": "Number of Transaction Sets Included",
+        "req": "M",
+        "data_type": "N0",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 6
+        },
+        "notes": "Total number of transaction sets included in the functional group or interchange (transmission) group terminated by the trailer containing this data element"
+      },
+      {
+        "id": "GE02",
+        "type": "element",
+        "name": "Group Control Number",
+        "req": "M",
+        "data_type": "N0",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 9
+        },
+        "notes": "Assigned number originated and maintained by the sender"
+      }
+    ]
+  },
+  {
+    "id": "IEA",
+    "type": "segment",
+    "name": "Interchange Control Trailer",
+    "req": "M",
+    "max_uses": 1,
+    "notes": "To define the end of an interchange of zero or more functional groups and interchange-related control segments",
+    "elements": [
+      {
+        "id": "IEA01",
+        "type": "element",
+        "name": "Number of Included Functional Groups",
+        "req": "M",
+        "data_type": "N0",
+        "data_type_ids": null,
+        "length": {
+          "min": 1,
+          "max": 5
+        },
+        "notes": "A count of the number of functional groups included in an interchange"
+      },
+      {
+        "id": "IEA02",
+        "type": "element",
+        "name": "Interchange Control Number",
+        "req": "M",
+        "data_type": "N0",
+        "data_type_ids": null,
+        "length": {
+          "min": 9,
+          "max": 9
+        },
+        "notes": "A control number assigned by the interchange sender"
+      }
+    ]
+  }
 ]
